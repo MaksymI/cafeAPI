@@ -1,0 +1,38 @@
+<div>
+  <form>
+    <div *ngIf="editName" class="form-group">
+      <input type="input" class="form-control" name="name" required placeholder="name" [(ngModel)]="cafe.name">
+    </div>
+    <h3 *ngIf="!editName" (click)="onNameClick()">{{ cafe.name }}</h3>
+    <div class="form-group">
+      <input type="input" class="form-control" name="rating" required placeholder="rating" [(ngModel)]="cafe.rating">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="address" required placeholder="rating" [(ngModel)]="cafe.address">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="lat" required placeholder="lat" [(ngModel)]="cafe.location.lat">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="lng" required placeholder="lat" [(ngModel)]="cafe.location.lng">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="url" required placeholder="url" [(ngModel)]="cafe.url">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="categories" required placeholder="categories" [(ngModel)]="cafe.categories">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="cuisines" required placeholder="cuisines" [(ngModel)]="cafe.cuisines">
+    </div>
+    <div class="form-group">
+      <input type="input" class="form-control" name="features" required placeholder="features" [(ngModel)]="cafe.features">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="12" name="tabl" placeholder="tables" [ngModel]="cafe.tables[0]">
+        </textarea>
+    </div>
+    <button type="button" (click)="updateCafe()" class="btn btn-primary">Update</button>
+    <button type="button" (click)="deleteCafe()" class="btn btn-danger">Delete</button>
+  </form>
+</div>

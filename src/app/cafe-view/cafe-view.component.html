@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-sm-9">
+    <div *ngIf="!hidenewCafe">
+      <h2>New Cafe</h2>
+      <form #form="ngForm" (ngSubmit)="onSubmitAddCafe(form.value)" class="well">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" required name="name" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" class="form-control" required name="address" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Rating</label>
+          <input type="text" class="form-control" required name="rating" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Latitude</label>
+          <input type="text" class="form-control" required name="lat" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Longitude</label>
+          <input type="text" class="form-control" required name="lng" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Image Url</label>
+          <input type="text" class="form-control" required name="url" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Сategories</label>
+          <input type="text" class="form-control" required name="categories" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Сuisines</label>
+          <input type="text" class="form-control" required name="cuisines" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Features</label>
+          <input type="text" class="form-control" required name="features" ngModel>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+
+    <cafe-detail (updateCafeEvent)="onUpdateCafeEvent($event)" (deleteCafeEvent)="onDeleteVideoEvent($event)" *ngIf="selectedCafe && hidenewCafe" [cafe]="selectedCafe"></cafe-detail>
+  </div>
+  <div class="col-sm-3">
+    <button (click)="newCafe()" style="margin-bottom:2px;" type="button" class="btn btn-success btn-block">+ New Cafe</button>
+    <cafe-list (SelectCafe)="onSelectCafe($event)" [cafes]="cafes" ></cafe-list>
+  </div>
+</div>
